@@ -8,7 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tubb.tabswitch.TabIndicator;
@@ -18,14 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class WeChatTabSwitchTestActivity extends AppCompatActivity implements View.OnClickListener {
+public class WeChatTabSwitchTestActivity extends AppCompatActivity{
+    
     private ViewPager pager;
-    private LinearLayout bottomWX, bottomFX, bottomW;
-
     private List<TabIndicator> indicators = new ArrayList<>();
-
-    private ImageView imgWXSelect, imgWXUnSelect, imgFXSelect, imgFXUnSelect, imgWSelect, imgWUnSelect;
-    private TextView tvWXSelect, tvWXUnSelect, tvFXSelect, tvFXUnSelect, tvWSelect, tvWUnSelect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,37 +39,25 @@ public class WeChatTabSwitchTestActivity extends AppCompatActivity implements Vi
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
             }
-
-            @Override
-            public void onPageScrollStateChanged(int position) {
-                super.onPageScrollStateChanged(position);
-            }
         });
     }
 
     private void initView() {
         pager = (ViewPager) findViewById(R.id.pager);
-        bottomWX = (LinearLayout) findViewById(R.id.bottom_wx);
-        bottomFX = (LinearLayout) findViewById(R.id.bottom_fx);
-        bottomW = (LinearLayout) findViewById(R.id.bottom_w);
 
-        bottomWX.setOnClickListener(this);
-        bottomFX.setOnClickListener(this);
-        bottomW.setOnClickListener(this);
+        ImageView imgWXSelect = (ImageView) findViewById(R.id.img_wx_select);
+        ImageView imgWXUnSelect = (ImageView) findViewById(R.id.img_wx_unselect);
+        ImageView imgFXSelect = (ImageView) findViewById(R.id.img_fx_select);
+        ImageView imgFXUnSelect = (ImageView) findViewById(R.id.img_fx_unselect);
+        ImageView imgWSelect = (ImageView) findViewById(R.id.img_w_select);
+        ImageView imgWUnSelect = (ImageView) findViewById(R.id.img_w_unselect);
 
-        imgWXSelect = (ImageView) findViewById(R.id.img_wx_select);
-        imgWXUnSelect = (ImageView) findViewById(R.id.img_wx_unselect);
-        imgFXSelect = (ImageView) findViewById(R.id.img_fx_select);
-        imgFXUnSelect = (ImageView) findViewById(R.id.img_fx_unselect);
-        imgWSelect = (ImageView) findViewById(R.id.img_w_select);
-        imgWUnSelect = (ImageView) findViewById(R.id.img_w_unselect);
-
-        tvWXSelect = (TextView) findViewById(R.id.tv_wx_select);
-        tvWXUnSelect = (TextView) findViewById(R.id.tv_wx_unselect);
-        tvFXSelect = (TextView) findViewById(R.id.tv_fx_select);
-        tvFXUnSelect = (TextView) findViewById(R.id.tv_fx_unselect);
-        tvWSelect = (TextView) findViewById(R.id.tv_w_select);
-        tvWUnSelect = (TextView) findViewById(R.id.tv_w_unselect);
+        TextView tvWXSelect = (TextView) findViewById(R.id.tv_wx_select);
+        TextView tvWXUnSelect = (TextView) findViewById(R.id.tv_wx_unselect);
+        TextView tvFXSelect = (TextView) findViewById(R.id.tv_fx_select);
+        TextView tvFXUnSelect = (TextView) findViewById(R.id.tv_fx_unselect);
+        TextView tvWSelect = (TextView) findViewById(R.id.tv_w_select);
+        TextView tvWUnSelect = (TextView) findViewById(R.id.tv_w_unselect);
 
         TabIndicator wxIndicator = new TabIndicator(imgWXUnSelect, tvWXUnSelect, imgWXSelect, tvWXSelect);
         TabIndicator fxIndicator = new TabIndicator(imgFXUnSelect, tvFXUnSelect, imgFXSelect, tvFXSelect);
@@ -90,8 +73,7 @@ public class WeChatTabSwitchTestActivity extends AppCompatActivity implements Vi
         pager.setAdapter(new MyAdapter(getSupportFragmentManager(), frgs));
     }
 
-    @Override
-    public void onClick(View v) {
+    public void viewClick(View v) {
         switch (v.getId()) {
             case R.id.bottom_wx:
                 pager.setCurrentItem(0, false);

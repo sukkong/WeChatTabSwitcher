@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:onClick="viewClick">
 
                 <FrameLayout
                     android:layout_width="35dp"
@@ -74,7 +75,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:onClick="viewClick">
 
                 <FrameLayout
                     android:layout_width="35dp"
@@ -121,7 +123,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:onClick="viewClick">
 
                 <FrameLayout
                     android:layout_width="35dp"
